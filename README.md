@@ -1,4 +1,4 @@
-h1. Ticket Guru UI
+#Ticket Guru UI
 
 The app is very simple to setup. Simply run ```npm start``` to get webpack running.
 
