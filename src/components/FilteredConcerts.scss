@@ -1,0 +1,16 @@
+@import '../styles/_variables';
+
+.filteredConcerts {
+  width: 90%;
+  margin: 0 auto;
+  ul {
+    padding-left: 0;
+  }
+  ul li:first-child {
+    border-top: 1px solid $border-color;
+  }
+}
+
+@media (min-width: 550px) {
+  width: 80%;
+}

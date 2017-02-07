@@ -1,0 +1,14 @@
+@import '../styles/_variables';
+
+.concertInfo {
+  padding-top: 2px;
+  padding-left: $interior-padding * 2;
+  flex: 1;
+  min-width: 60%;
+}
+
+@media (max-width: 550px) {
+  .concertInfo {
+    flex: 2;
+  }
+}

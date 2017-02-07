@@ -1,0 +1,14 @@
+@import '../styles/_variables';
+
+.concertDate {
+  border-right: 1px solid $border-color;
+  text-align: center;
+  width: 100px;
+  padding-right: $interior-padding;
+  p {
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+}

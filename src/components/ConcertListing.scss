@@ -1,0 +1,32 @@
+@import '../styles/_variables';
+
+.concertListing {
+  padding: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  border-bottom: 1px solid $border-color;
+  a {
+    margin-top: 15px;
+  }
+}
+
+@media (min-width: 539px) {
+  .concertListing {
+    padding: 20px 0;
+    flex-wrap: nowrap;
+    a {
+      margin-right: 2%;
+      margin-top: 0;
+      padding-top: 4px;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .concertListing {
+    a {
+      width: 100% !important;
+    }
+  }
+}

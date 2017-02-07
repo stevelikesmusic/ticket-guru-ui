@@ -1,0 +1,27 @@
+.searchBox {
+  form {
+    margin: 10px;
+    text-align: center;
+  }
+  input {
+    width: 100% !important;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 529px) {
+  .searchBox {
+    button {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 530px) {
+  .searchBox {
+    input {
+      display: inline-block;
+      width: 400px !important;
+    }
+  }
+}

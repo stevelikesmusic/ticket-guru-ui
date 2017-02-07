@@ -1,0 +1,188 @@
+/************ Customer ************/
+
+{
+"id": 17,
+"firstName": "Janel",
+"lastName": "Stegman",
+"address": "710 Woodsman Dr. East Lansing, MI 48823",
+"email": "Janel.Stegman@email.com"
+}
+
+GET /customers               -- get all customers
+GET /customers/:customerId   -- get a specific customer
+
+/************ Venue ************/
+
+{
+  "id":5,
+  "name":"Nightclub 9:30",
+  "description":"The Nightclub 9:30, originally named the 9:30 Club, is a nightclub and concert venue in Washington, D.C.",
+  "address":"815 V ST. N.W., WASHINGTON DC",
+  "url":"http://www.930.com",
+  "levels":[
+    {
+      "id":6,
+      "name":"Main Level",
+      "price":75,
+      "numRows":10,
+      "seatsPerRow":15,
+      "seatingCapacity":150
+    },
+    {
+      "id":7,
+      "name":"Balcony",
+      "price":50,
+      "numRows":5,
+      "seatsPerRow":10,
+      "seatingCapacity":50
+    },
+    {
+      "id":5,
+      "name":"Orchestra",
+      "price":100,
+      "numRows":5,
+      "seatsPerRow":10,
+      "seatingCapacity":50
+    }
+  ]
+}
+
+GET /venues            -- get all venues
+GET /venues/:venueId   -- get a specific venue
+
+/************ Show ************/
+
+{
+  "id":5,
+  "name":"Death Cab for Cutie",
+  "description":"An American alternative rock band, formed in Bellingham, Washington in 1997.",
+  "url":"http://deathcabforcutie.com",
+  "performances":[
+    {
+      "id":5,
+      "showTime":1484773200000,
+      "seatsAvailable":245
+    },
+    {
+      "id":7,
+      "showTime":1484949600000,
+      "seatsAvailable":250
+    },
+    {
+      "id":6,
+      "showTime":1484856000000,
+      "seatsAvailable":250
+    }
+  ]
+}
+
+GET /venues/:venueId/shows           -- get all shows for a specific venue
+GET /venues/:venueId/shows/:showId   -- get a specific show for a specific venue
+
+/************ Performance ************/
+
+{
+  "id":5,
+  "showTime":1484773200000,
+  "seatsAvailable":245
+}
+
+GET /venues/:venueId/shows/:showId/performances                                                      -- get all performances for a specific show
+GET /venues/:venueId/shows/:showId/performances/:performanceId                                       -- get a specific performance for a specific show
+GET /venues/:venueId/shows/:showId/performances/:performanceId/availability[?levelName=<levelName>]  -- get seat availability for a performance, optionally by level; returns an integer
+
+/************ Reservation ************/
+
+POST /venues/:venueId/shows/:showId/performances/:performanceId/reservations  -- create a reservation
+
+request body...
+
+{
+  "customer":{
+    "email":"John.Jones@email.com"
+  },
+  "seatRequests":[
+    {
+      "level":{
+        "name":"Orchestra"
+      },
+      "numSeats":5
+    }
+  ]
+}
+
+response...
+
+{
+  "id":135,
+  "customer":{
+    "id":50,
+    "firstName":"John",
+    "lastName":"Jones",
+    "address":"101 American Way Denver, CO 80204",
+    "email":"John.Jones@email.com"
+  },
+  "seats":[
+    {
+      "id":152,
+      "performance":{
+        "id":51,
+        "showTime":1484773200000,
+        "seatsAvailable":246
+      },
+      "level":{
+        "id":50,
+        "name":"Orchestra",
+        "price":100,
+        "numRows":5,
+        "seatsPerRow":10,
+        "seatingCapacity":50
+      },
+      "row":1,
+      "seatNumber":1
+    },
+    {
+      "id":153,
+      "performance":{
+        "id":51,
+        "showTime":1484773200000,
+        "seatsAvailable":246
+      },
+      "level":{
+        "id":50,
+        "name":"Orchestra",
+        "price":100,
+        "numRows":5,
+        "seatsPerRow":10,
+        "seatingCapacity":50
+      },
+      "row":1,
+      "seatNumber":5
+    },
+    {
+      "id":154,
+      "performance":{
+        "id":51,
+        "showTime":1484773200000,
+        "seatsAvailable":246
+      },
+      "level":{
+        "id":50,
+        "name":"Orchestra",
+        "price":100,
+        "numRows":5,
+        "seatsPerRow":10,
+        "seatingCapacity":50
+      },
+      "row":1,
+      "seatNumber":3
+    }
+  ],
+  "expiration":1484933485567,
+  "reservationNumber":"239f232f-a1a0-4605-b807-b19f2732f95c",
+  "reservationConfirmed":false
+}
+
+POST /venues/:venueId/shows/:showId/performances/:performanceId/reservations/:reservationId/confirm  -- confrim a reservation
+
+No request body, no response body

@@ -1,0 +1,22 @@
+@import '_variables';
+@import '_reset';
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+header {
+  padding: 15px 30px;
+  background-color: #ccc;
+  display: flex;
+  justify-content: space-between;
+  h1 {
+    margin: 0;
+  }
+  a {
+
+  }
+}
