@@ -1,6 +1,6 @@
 #Ticket Guru UI
 
-The app is very simple to setup. Simply run ```npm start``` to get webpack running.
+The app is very simple to setup. Simply run ```npm start``` to get webpack running. The app is hosted at localhost:8080.
 
 Enter an artist name (The Shins, Death Cab, or Phantom of the Opera) or venue (9:30 or Kennedy Center) to
 get a list of concerts.
@@ -15,3 +15,4 @@ Some things to address:
 * A login page to get 'My Reservations'. This would allow a user to view reservations and confirm if needed.
 * A venues page
 * Show upcoming concerts on home page
+* Manage state with Redux or Mobx
